@@ -1,7 +1,23 @@
-<%# Adiciona o usuário criado a lista. %>
+<%# Por ter extensão js.erb, este arquivo tem seu código ruby executado com
+  o intuito de dinamizar a página. Após a execução deste código, o arquivo
+  tem extensão js, ou seja, é um arquivo puramente de JavaScript.
+    - O Rails já inclui o jQuery por padrão, portanto, o jQuery está disponível
+      para ser usado na aplicação. %>
+
+<%# Adiciona o usuário criado a lista.
+  - Renderiza o partial de user com o usuário recém criado (@user) como
+    argumento.
+  - Escapa o html do partial, pois este contém aspas duplas e barras,
+    por exemplo, e podem causar erros de sintaxe no código JavaScript. %>
 var $user = "<%= escape_javascript render 'user', user: @user %>";
+<%# Adiciona o pedaço de HTML ao final da lista (ul)  %>
 $("ul").append($user);
 
-<%# Substitui o form por um novo (vazio). %>
+<%# Substitui o form por um novo (vazio).
+  - Renderiza o partial de form com um usuário recém instanciado para
+    que seja um form de criação.
+  - Escapa o html do partial, pois este contém aspas duplas e barras,
+    por exemplo, e podem causar erros de sintaxe no código JavaScript. %>
 var $form = "<%= escape_javascript render 'form', user: User.new %>";
+<%# Substitui o form da página pelo pedaço de HTML (novo form).  %>
 $("form").replaceWith($form);

@@ -1,6 +1,8 @@
 <h1>Todos os usuários</h1>
 <ul>
+    <%# Itera sobre a lista de usuários e renderiza o partial 'user' para cada instância %>
 	<%= render partial: 'user', :collection => @users %>
 </ul>
 
+<%# Renderiza o partial 'form' e passa @user como argumento para o parâmetro 'user' %>
 <%= render 'form', user: @user %>
