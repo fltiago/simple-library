@@ -1,0 +1,7 @@
+<%# Adiciona o usuário criado a lista. %>
+var $user = "<%= escape_javascript render 'user', user: @user %>";
+$("ul").append($user);
+
+<%# Substitui o form por um novo (vazio). %>
+var $form = "<%= escape_javascript render 'form', user: User.new %>";
+$("form").replaceWith($form);

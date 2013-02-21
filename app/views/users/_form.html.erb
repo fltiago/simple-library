@@ -1,0 +1,10 @@
+<%= form_for user, remote: true do |u| %>
+  <%= u.label :name %>
+  <%= u.text_field :name %>
+  <%= u.label :last_name %>
+  <%= u.text_field :last_name %>
+  <%= u.label :email %>
+  <%= u.text_field :email %>
+
+  <%= u.submit %>
+<% end %>
