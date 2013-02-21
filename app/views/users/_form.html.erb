@@ -1,0 +1,21 @@
+<%# Formulário para criação ou atualização de usuário, isto depende do
+  estado da variável 'user'.
+
+  Se for um usuário não salvo no banco (id é nil):
+  - o action do <form> será: /users
+  - o method do <form> será: post
+
+  Se for um usuário salvo no banco (id diferente de nil):
+  - o action do <form> será: /users/:id
+  - o method do <form> será: post
+  (para a aplicação Rails é um put, mas é melhor abstrair por enquanto). %>
+<%= form_for user, remote: true do |u| %>
+  <%= u.label :name %>
+  <%= u.text_field :name %>
+  <%= u.label :last_name %>
+  <%= u.text_field :last_name %>
+  <%= u.label :email %>
+  <%= u.text_field :email %>
+
+  <%= u.submit %>
+<% end %>
