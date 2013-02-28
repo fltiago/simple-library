@@ -1,0 +1,14 @@
+<h1>Books#index</h1>
+<p>Find me in app/views/books/index.html.erb</p>
+
+<ul>
+  <% @books.each do |book| %>
+    <li>
+      <%= form_tag add_to_redu_book_path(book), :method => :post do %>
+        <%= hidden_field_tag :space_id, @space_id %>
+        <%= hidden_field_tag :subject_id, @subject_id %>
+        <%= submit_tag book.name %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
